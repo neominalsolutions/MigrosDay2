@@ -1,0 +1,9 @@
+
+<input [disabled]="disabled" [value]="selected"  (change)="onChange($event)" list="browsers" name="browser" id="browser">
+<datalist  id="browsers">
+  <option [value]="item" *ngFor="let item of dataSource">
+    {{item}}
+  </option>
+</datalist>
+
+<button (click)="clear()">Clear</button>

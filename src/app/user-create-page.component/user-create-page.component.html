@@ -1,4 +1,7 @@
  
+
+<!-- Angular Forms Sample -->
+
 <select (change)="selected= $any($event.target).value">
   <option [value]="item" *ngFor="let item of ['template','reactive']">{{item}}</option>
 </select>
@@ -13,3 +16,24 @@
 <ng-template #reactiveFormSample>
   <app-reactive-form-sample></app-reactive-form-sample>
 </ng-template>
+
+<hr>
+
+
+<!-- Default Component Sample 1 -->
+
+<!-- <app-my-button [margin]="5" [padding]="30" [cssStyle]="{'background-color':'red','font-size':'16px','color':'white'}" (click)="onClick()" (mouseover)="onMouseOver()" (maxPaddingReached)="onMaxPaddingReached($event)"> Red Button </app-my-button> -->
+
+<!-- string değerleri yukarıdaki gibi parametre geçebiliriz. -->
+
+<app-my-button [cssStyle]="{'background-color':'green','font-size':'16px','color':'yellow'}">Green Button</app-my-button>
+
+<app-my-button [cssStyle]="{'background-color':'blue','font-size':'16px','color':'red'}">Blue Button</app-my-button>
+
+<hr>
+
+<!-- Default UI Component Output Input Real life Sample -->
+
+<app-auto-complete [disabled]="true" (onClear)="onClear()" (onLoad)="onLoad()" (onSelect)="onSelect($event)" [selected]="'chrome'" [dataSource]="['chrome','firefox','edge','safari','opera']"></app-auto-complete>
+
+

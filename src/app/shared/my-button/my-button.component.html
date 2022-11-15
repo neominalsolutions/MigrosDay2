@@ -1,0 +1,11 @@
+<!-- <button [style]="cssStyle">
+  <ng-content></ng-content> 
+</button> -->
+
+
+<button [ngStyle]="cssStyle" [style.margin]="'{{margin}}px'" [style.padding]="'{{padding}}px'">
+  <ng-content></ng-content> 
+</button>
+
+
+<!-- duşarıdan component içine gönderilen değerler ng-content olarak componete yansıyor -->
