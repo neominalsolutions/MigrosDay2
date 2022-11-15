@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UserCreatePageComponent } from './user-create-page/user-create-page.component';
 
+// Angularda Template Forms Yçntemi ile çalışmamızı sağlayan teknik.
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserCreatePageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

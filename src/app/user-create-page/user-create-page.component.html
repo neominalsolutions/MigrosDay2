@@ -1,0 +1,55 @@
+ 
+<!-- ngForm directive bir form kapsayıcı olarak kullanılıyor -->
+<!-- ngModel directive ise inputa yazılan değeri name alanına bind edilmesi sağlar. -->
+<!-- dirty ve touched inputa dokunduksak ve boş ise -->
+<!-- formun angular tarafında ngSubmit olmasını gönderimini sağlar.  -->
+<!-- novalidate html5 ile gelen validasyonları kaldır -->
+<!-- ngModel özel bir tanımlama şekli two way binding sağlar. Template Form üzerinde input değerlerini model bind etmek için kullanılır -->
+<!-- novalidate html5 validayonlarını göstermemk için kullanılan teknik -->
+
+<!-- [(ngModel)] =  [ngModel] + (ngModelChange) -->
+
+<!-- [ngModel]="model.phone" property binding yapıyoruz -->
+<!-- (ngModelChange)="onModelChange($event)" event binding yapıyoruz -->
+
+<!-- [()] bu tarz gördüğünüz şeyler hem property hem event binding anlamına gelir. two way binding demek event+property binding -->
+
+<p>
+  phone::{{model.phone}}
+  <br>
+  <input [(ngModel)]="model.phone" placeholder="phone number required 1" name="phone">  
+
+  <!-- $event ile aslında input event.target.value gönderilir -->
+  <input [ngModel]="model.phone" (ngModelChange)="onModelChange($event)" placeholder="phone number required 2" name="phone"> 
+</p>
+
+<!-- Not template formda verileri template üzerinden set ettiğimiz için ts tarafında component ilk init olduğunda aslında daha property binding yapılmamış oluyor. bu sebeple ngOnit içerisinde form nesnesine ait value değerlerine ulaşmamız mümkün olmuyor. Forma veri aktarma işlemini template üstleniyor -->
+<form #userCreateForm="ngForm" (ngSubmit)="onSubmit(userCreateForm)" novalidate>
+
+  <input type="text" [(ngModel)]="model.username" required #username="ngModel" name="username"  placeholder="username">
+
+  <!-- validayon kontrolüne göre mesaj verdik -->
+  <div *ngIf="username && (username.touched || username.dirty)">
+    <div *ngIf="username.hasError('required')" class="danger">
+    Name is required.
+    </div>
+  </div>
+
+  <br>
+
+
+  <input type="email" [(ngModel)]="model.email" required email #email="ngModel" name="email" placeholder="email address">
+
+  <!-- validayon kontrolüne göre mesaj verdik -->
+  <div *ngIf="email && (email.touched || email.dirty)">
+    <div *ngIf="email.hasError('required')" class="danger">
+      email is required
+      </div>
+    <div *ngIf="email.hasError('email')" class="danger">
+    pls add @.
+    </div>
+  </div>
+
+  <input type="submit" [disabled]="userCreateForm.invalid"  value="Create">
+
+</form>
