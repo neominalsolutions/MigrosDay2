@@ -1,0 +1,26 @@
+<!-- 1.yöntem -->
+
+<!-- typescript dosyasında subscribe olunup bir değişkene değer aktarılarak ekrana yansıtılıyor -->
+<button (click)="loadAndSubscribe()">Load And Subscribe </button>
+
+<hr>
+
+<ul>
+  <li *ngFor="let item of todos"> 
+    {{item.title}}
+  </li>
+</ul>
+
+<hr>
+
+<!-- 2. yöntem -->
+
+<button (click)="loadAsync()">Load With Async Operator </button>
+<!-- template üzerinden async pipe subscripte olunuyor -->
+<ul>
+  <li *ngFor="let item of todos$ | async">
+    {{item.title}}
+  </li>
+</ul>
+
+
