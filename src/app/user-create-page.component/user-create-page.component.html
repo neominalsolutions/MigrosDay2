@@ -1,0 +1,15 @@
+ 
+<select (change)="selected= $any($event.target).value">
+  <option [value]="item" *ngFor="let item of ['template','reactive']">{{item}}</option>
+</select>
+
+
+<div *ngIf="selected == 'template'  then templateFormSample else reactiveFormSample"></div>
+
+<ng-template #templateFormSample>
+  <app-tempate-form-sample></app-tempate-form-sample>
+</ng-template>
+
+<ng-template #reactiveFormSample>
+  <app-reactive-form-sample></app-reactive-form-sample>
+</ng-template>

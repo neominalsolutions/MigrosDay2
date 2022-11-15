@@ -1,12 +1,13 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm, NgModel, Validators } from '@angular/forms';
-import { User } from './user';
+import { User } from '../user-create-page.component/user';
 
 @Component({
-  templateUrl: './user-create-page.component.html',
-  styleUrls: ['./user-create-page.component.scss']
+  selector: 'app-tempate-form-sample',
+  templateUrl: './tempate-form-sample.component.html',
+  styleUrls: ['./tempate-form-sample.component.scss']
 })
-export class UserCreatePageComponent implements OnInit {
+export class TempateFormSampleComponent implements OnInit {
 
   model:User = { username:'ali.test', email:'ali.can', website:'', phone:'0545211236'};
 
